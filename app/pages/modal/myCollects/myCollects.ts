@@ -2,7 +2,7 @@ import {Page, NavParams, ViewController, Storage, LocalStorage} from 'ionic-angu
 import {IonicService} from "../../../services/IonicService";
 import {ConfigService} from "../../../services/ConfigService";
 import {AmTimeAgoPipe} from '../../../pipe/AmTimeAgoPipe';
-import {AvatarPipe} from "../../../pipe/avatarPipe";
+import {AvatarPipe} from "../../../pipe/AvatarPipe";
 
 @Page({
   templateUrl: 'build/pages/modal/myCollects/myCollects.html',

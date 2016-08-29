@@ -10,6 +10,12 @@ import {LoginPage} from "./pages/login/login";
 import {AccountPage} from "./pages/account/account";
 import {Toast} from 'ionic-native';
 
+
+//全局的一些click事件等
+//包括nav  footer目前没有
+//
+
+
 @App({
   templateUrl: 'build/app.html',
   providers: [CommonService],
@@ -29,12 +35,20 @@ import {Toast} from 'ionic-native';
 ])
 
 export class MyApp {
-  private rootPage = TopicsPage;
+
+  //MyApp类
+
+  //私有变量
+  private rootPage = TopicsPage;//初始化时就跳转到TopicsPage
   private menuPage:any;
   private tabs = [];
   private backPressed:boolean = false;
 
+
+  //构造函数
   constructor(private app:IonicApp, platform:Platform, private commonService:CommonService) {
+
+    //platform加载完毕
     platform.ready().then(() => {
       StatusBar.styleDefault();
       this.registerBackButtonListener();
@@ -42,6 +56,9 @@ export class MyApp {
   }
 
   registerBackButtonListener() {
+
+    //可能包括手机里的后退键，看
+
     document.addEventListener('backbutton', ()=> {
       let nav = this.getNav();
       if (nav.canGoBack()) {
@@ -64,10 +81,13 @@ export class MyApp {
   }
 
   getNav() {
+    //好像是获取ionic里的nav对象
     return this.app.getComponent('nav');
   }
 
+  //选择具体栏目
   setRootPage(tab:string) {
+    //设置#topics后面的参数tab为string
     this.getNav().setRoot(TopicsPage, {tab: tab});
   }
 }

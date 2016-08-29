@@ -2,7 +2,7 @@ import {Page, NavController, Storage, LocalStorage, Modal, ViewController, Event
 import {IonicService} from "../../services/IonicService";
 import {ConfigService} from "../../services/ConfigService";
 import {MyCollectsPage} from "../modal/myCollects/myCollects";
-import {AvatarPipe} from "../../pipe/avatarPipe";
+import {AvatarPipe} from "../../pipe/AvatarPipe";
 import {MyTopicsPage} from "../modal/myTopics/myTopics";
 import {MyMessagesPage} from "../modal/myMessages/myMessages";
 import {AppVersion} from 'ionic-native';

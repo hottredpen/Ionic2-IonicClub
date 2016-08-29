@@ -12,7 +12,7 @@ export class IonicService {
 
   }
 
-  // 获取主题
+  // 获取主题,data为获取数据的一些参数
   getTopics(data) {
     let url = this.configService.getHost() + "/api/v1/topics";
     return this.http.get(url + helper.toQueryString(data)).map(

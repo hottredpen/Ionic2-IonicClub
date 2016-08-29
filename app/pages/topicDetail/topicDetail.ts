@@ -2,8 +2,8 @@ import {Page, Loading, NavController, NavParams, Storage, LocalStorage} from "io
 import {IonicService} from "../../services/IonicService";
 import {ConfigService} from "../../services/ConfigService";
 import {AmTimeAgoPipe} from '../../pipe/AmTimeAgoPipe';
-import {AvatarPipe} from "../../pipe/avatarPipe";
-import {LinkPipe} from "../../pipe/linkPipe";
+import {AvatarPipe} from "../../pipe/AvatarPipe";
+import {LinkPipe} from "../../pipe/LinkPipe";
 import {SocialSharing} from 'ionic-native';
 
 @Page({

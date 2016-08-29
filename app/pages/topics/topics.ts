@@ -2,11 +2,16 @@ import {Page, NavController, NavParams, Modal, Storage, LocalStorage, Events} fr
 import {IonicService} from "../../services/IonicService";
 import {ConfigService} from "../../services/ConfigService";
 import {TabNamePipe} from "../../pipe/TabNamePipe";
-import {AvatarPipe} from "../../pipe/avatarPipe";
+import {AvatarPipe} from "../../pipe/AvatarPipe";
 import {AmTimeAgoPipe} from '../../pipe/AmTimeAgoPipe';
 import {TopicAddPage} from "../modal/topicAdd/topicAdd";
 import {LoginPage} from "../login/login";
 import {AccountPage} from "../account/account";
+
+
+//指定templateUrl
+//IonicService  其实名称命名不对， 其实就是bbsObject数据管理者 里面包含了多个click事件
+//ConfigService    通用click事件
 
 @Page({
   templateUrl: 'build/pages/topics/topics.html',
@@ -15,6 +20,7 @@ import {AccountPage} from "../account/account";
 })
 
 export class TopicsPage {
+
   private topics = [];
   private local:LocalStorage;
   private rootPage:any = LoginPage;
@@ -29,12 +35,19 @@ export class TopicsPage {
 
   constructor(private ionicService:IonicService, private nav:NavController,
               private navParams:NavParams, private events:Events) {
+
+    //获取#topics后面的参数tab为string
+
     if (navParams.get('tab')) {
       this.params.tab = navParams.get('tab');
     }
+
+    //标记
     this.events.subscribe('badge', (data)=> {
       this.badge = data;
     });
+
+    //刷新
     this.events.subscribe('doRefresh', ()=> {
       this.params.page = 1;
       this.params.tab = 'all';
@@ -66,6 +79,7 @@ export class TopicsPage {
     this.params.tab = 'all';
     setTimeout(() => {
       this.ionicService.getTopics(this.params).subscribe(
+          //获取后的数据
           data => {
             this.topics = [];
             this.topics = data;
@@ -76,13 +90,17 @@ export class TopicsPage {
     }, 500);// 延迟500ms
   }
 
+
+  //ng监听初始化
   ngOnInit() {
+    //初始化成功后去加载论坛的数据
     this.ionicService.getTopics(this.params).subscribe(
         data => {
           this.topics = data;
           this.params.page++;
         }
     );
+    //获取用户的站内信信息
     this.local.get('User').then(u=> {
       if (u) {
         this.rootPage = AccountPage;
@@ -94,6 +112,8 @@ export class TopicsPage {
     });
   }
 
+
+  //添加帖子
   addTopic() {
     let modal = Modal.create(TopicAddPage);
     this.nav.present(modal);

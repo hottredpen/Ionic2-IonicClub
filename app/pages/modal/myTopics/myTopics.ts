@@ -1,7 +1,7 @@
 import {Page, NavParams, ViewController} from 'ionic-angular';
 import {ConfigService} from "../../../services/ConfigService";
 import {AmTimeAgoPipe} from '../../../pipe/AmTimeAgoPipe';
-import {AvatarPipe} from "../../../pipe/avatarPipe";
+import {AvatarPipe} from "../../../pipe/AvatarPipe";
 
 
 @Page({

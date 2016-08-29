@@ -2,7 +2,7 @@ import {Page, NavController, NavParams} from 'ionic-angular';
 import {IonicService} from "../../services/IonicService";
 import {ConfigService} from "../../services/ConfigService";
 import {AmTimeAgoPipe} from '../../pipe/AmTimeAgoPipe';
-import {AvatarPipe} from "../../pipe/avatarPipe";
+import {AvatarPipe} from "../../pipe/AvatarPipe";
 import {DateFormatPipe} from "../../pipe/DateFormatPipe";
 
 
